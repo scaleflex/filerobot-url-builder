@@ -3,7 +3,7 @@ module.exports = function (api) {
 
   const presets = [
     [
-      "@babel/env",
+      "@babel/preset-env",
       {
         "targets": {
           "browsers": [
@@ -13,7 +13,7 @@ module.exports = function (api) {
         }
       }
     ],
-    "@babel/react"
+    "@babel/preset-react"
   ];
 
   const plugins = [

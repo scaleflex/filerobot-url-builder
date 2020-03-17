@@ -8,7 +8,7 @@ const banner = `
  ${pkg.name} v${pkg.version}
  ${pkg.repository.url}
 
- Copyright (c) 2019 ${pkg.author}
+ Copyright (c) 2020 ${pkg.author}
  Released under the ${pkg.license} license
 
  Date: ${now.toISOString()}
@@ -41,7 +41,12 @@ module.exports = (env = {}) => {
       rules: [
         {
           test: /\.(js|jsx)$/,
-          use: "babel-loader",
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015','react']
+            }
+          },
           exclude: /(node_modules|bower_components)\/(?!pretty-bytes\/).*/,
         },
         {
