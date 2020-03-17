@@ -54,7 +54,7 @@ class URLBuilderOutput extends Component {
             <CopyToClipboard
               text={this.props.builderProps.link}
               onCopy={() => {
-                showAlert(null, t.builder['COPIED_TO_CLIPBOARD']);
+                //showAlert(null, t.builder['COPIED_TO_CLIPBOARD']);
               }}
             >
               <button type="button" className="btn btn-primary">
@@ -68,8 +68,8 @@ class URLBuilderOutput extends Component {
   }
 }
 
-URLBuilderOutput.propTypes = {
-  showAlert: PropTypes.func.isRequired,
-}
+//URLBuilderOutput.propTypes = {
+//  showAlert: PropTypes.func.isRequired,
+//}
 
 export default URLBuilderOutput;
