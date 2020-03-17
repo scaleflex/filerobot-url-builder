@@ -41,12 +41,7 @@ module.exports = (env = {}) => {
       rules: [
         {
           test: /\.(js|jsx)$/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015','react']
-            }
-          },
+          use: "babel-loader",
           exclude: /(node_modules|bower_components)\/(?!pretty-bytes\/).*/,
         },
         {
