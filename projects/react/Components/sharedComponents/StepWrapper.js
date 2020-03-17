@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-export default ({ step = '1', title = '', children, isContentHTML = false }) => (
-  <Wrapper>
+export default ({ step = '1', title = '', children, isContentHTML = false, className = '' }) => (
+  <Wrapper className={className}>
     {/*<Step>{step}</Step>*/}
 
     {isContentHTML ?
@@ -44,6 +44,8 @@ const Step = styled.span`
   font-size: 22px;
 `;
 
-const Title = styled.p`
+const Title = styled.p.attr(p => ({
+  className: 'step-title'
+}))`
   font-size: 18px;
 `;
