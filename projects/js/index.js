@@ -1,11 +1,11 @@
 import { render, unmountComponentAtNode } from 'react-dom';
 import React from 'react';
-import ImageEditor from '../react';
+import UrlBuilder from '../react/urlBuilder';
 
 
-class FilerobotImageEditor {
+class CloudimageUrlBuilder {
   constructor(config = {}, methods, show = false) {
-    const containerId = config.elementId || 'filerobot-image-editor';
+    const containerId = config.elementId || 'cloudimage-url-builder';
     let container = document.getElementById(containerId);
     let onComplete = (src) => { console.log(src) };
 
@@ -30,11 +30,11 @@ class FilerobotImageEditor {
         onBeforeComplete={methods.onBeforeComplete}
       />, container);
 
-    this.component = renderApp(ImageEditor);
+    this.component = renderApp(UrlBuilder);
     this.open = this.component.open;
     this.close = this.component.close;
     this.unmount = () => unmountComponentAtNode(container);
   }
 }
 
-window.FilerobotImageEditor = FilerobotImageEditor;
+window.CloudimageUrlBuilder = CloudimageUrlBuilder;

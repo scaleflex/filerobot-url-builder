@@ -1,0 +1,29 @@
+$directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+
+$sizes: (
+  0: 0,
+  1: 5px,
+  2: 15px,
+  3: 30px
+);
+
+// Margins
+@each $size, $value in $sizes {
+  .m-#{$size} { margin: #{$value} !important; }
+  @each $d-key, $direction in $directions {
+    .m#{$d-key}-#{$size} { margin-#{$direction}: #{$value} !important; }
+  }
+}
+
+// Paddings
+@each $size, $value in $sizes {
+  .p-#{$size} { padding: #{$value} !important; }
+  @each $d-key, $direction in $directions {
+    .p#{$d-key}-#{$size} { padding-#{$direction}: #{$value} !important; }
+  }
+}

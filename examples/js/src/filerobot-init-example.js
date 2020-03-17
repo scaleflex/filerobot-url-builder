@@ -3,17 +3,16 @@ import '../../../projects/js/index';
 
 const buttonEditDownload = document.getElementById('edit-btn-download');
 const buttonEditUpload = document.getElementById('edit-btn-upload');
-const buttonEditModify = document.getElementById('edit-btn-modify');
+//const buttonEditModify = document.getElementById('edit-btn-modify');
 const resultModal = document.getElementById('result-modal');
 const resultLink = document.getElementById('result-link');
 const responseMessage = document.getElementById('success-message');
 
 
-let ImageEditorDownload, ImageEditorUpload, ImageEditorModify;
+let UrlBuilderDownload, ImageEditorUpload, ImageEditorModify;
 
-// Image Editor to download images
 
-ImageEditorDownload = new FilerobotImageEditor({
+UrlBuilderDownload = new CloudimageUrlBuilder({
     elementId: 'image-editor-download',
     isLowQualityPreview: true,
     colorScheme: 'dark',
@@ -68,37 +67,22 @@ ImageEditorDownload = new FilerobotImageEditor({
 // Image Editor to upload images and get url in response
 
 const configUpload = {
-  elementId: 'image-editor-upload',
-  filerobot: {
-    uploadKey: '7cc1f659309c480cbc8a608dc6ba5f03',
-    container: 'scaleflex-tests-v5a',
-    uploadParams: {
-      dir: '/Github-Image-Editor'
-    }
+  location: {},
+  //cloudimg_token: 'demoaws',
+  cloudimg_token: 'fusqadtm',
+  airstore_subdomain: 'fusqadtm',
+  airstore_key: '19692813e7364ef8ad6a6504d50a12ca',
+  projectDomains: {
+    api: "api.filerobot.com/fusqadtm",
+    store: "store.filerobot.com/fusqadtm",
+    cdn: "fusqadtm.filerobot.com",
   },
-  isLowQualityPreview: true,
-  reduceBeforeEdit: {
-    mode: 'manual',
-    widthLimit: 2000,
-    heightLimit: 2000
-  },
-  cropBeforeEdit: {
-    width: 400,
-    height: 200
-  },
-  watermark: {
-    url: 'https://cdn.scaleflex.it/demo/filerobot.png',
-    urls: [
-      'https://cdn.scaleflex.it/demo/filerobot.png',
-      'https://cdn.scaleflex.it/demo/superman.png'
-    ],
-    position: 'center',
-    opacity: 0.7,
-    applyByDefault: false,
-    handleOpacity: true,
-    fileUpload: true,
-  }
+  language: 'en',
+  translations: {},
+  isShowInput: false,
+  isShowOutput: true,
 };
+
 const onCompleteUpload = function (newUrl) {
   const copyText = document.getElementById("copy-text");
   const resultImage = document.getElementById('result-image');
@@ -112,9 +96,9 @@ const onCompleteUpload = function (newUrl) {
   resultModal.style.display = 'block';
 };
 
-ImageEditorUpload = new FilerobotImageEditor(configUpload, onCompleteUpload);
+ImageEditorUpload = new CloudimageUrlBuilder(configUpload, onCompleteUpload);
 
-//ImageEditorUpload = new FilerobotImageEditor(configUpload, {
+//ImageEditorUpload = new CloudimageUrlBuilder(configUpload, {
 //  onComplete: onCompleteUpload,
 //  onBeforeComplete: (props) => {
 //    console.log(props);
@@ -124,62 +108,62 @@ ImageEditorUpload = new FilerobotImageEditor(configUpload, onCompleteUpload);
 
 // Image Editor to apply transformation by modifying url
 
-const configModify = {
-  elementId: 'image-editor-modify',
-  //cloudimage: {
-  //  token: 'scaleflex'
-  //},
-  filerobot: {
-    token: 'fusqadtm'
-  },
-  isLowQualityPreview: true,
-  reduceBeforeEdit: {
-    mode: 'manual',
-    widthLimit: 2000,
-    heightLimit: 2000
-  },
-  cropBeforeEdit: {
-    width: 400,
-    height: 200
-  },
-  watermark: {
-    url: 'https://cdn.scaleflex.it/demo/filerobot.png',
-    urls: [
-      { url: 'https://cdn.scaleflex.it/demo/filerobot.png', label: 'filerobot logo' },
-      'https://cdn.scaleflex.it/demo/superman.png'
-    ],
-    position: 'center',
-    opacity: 0.7,
-    applyByDefault: true,
-    handleOpacity: true
-  },
-};
+//const configModify = {
+//  elementId: 'image-editor-modify',
+//  //cloudimage: {
+//  //  token: 'scaleflex'
+//  //},
+//  filerobot: {
+//    token: 'fusqadtm'
+//  },
+//  isLowQualityPreview: true,
+//  reduceBeforeEdit: {
+//    mode: 'manual',
+//    widthLimit: 2000,
+//    heightLimit: 2000
+//  },
+//  cropBeforeEdit: {
+//    width: 400,
+//    height: 200
+//  },
+//  watermark: {
+//    url: 'https://cdn.scaleflex.it/demo/filerobot.png',
+//    urls: [
+//      { url: 'https://cdn.scaleflex.it/demo/filerobot.png', label: 'filerobot logo' },
+//      'https://cdn.scaleflex.it/demo/superman.png'
+//    ],
+//    position: 'center',
+//    opacity: 0.7,
+//    applyByDefault: true,
+//    handleOpacity: true
+//  },
+//};
 
-const onCompleteModify = function (newUrl) {
-  const copyText = document.getElementById("copy-text");
-  const resultImage = document.getElementById('result-image');
+//const onCompleteModify = function (newUrl) {
+//  const copyText = document.getElementById("copy-text");
+//  const resultImage = document.getElementById('result-image');
+//
+//  responseMessage.style.display = 'none';
+//  responseMessage.innerText = '';
+//  copyText.value = newUrl;
+//  resultImage.src = newUrl;
+//  resultLink.innerText = newUrl;
+//  resultModal.style.display = 'block';
+//};
 
-  responseMessage.style.display = 'none';
-  responseMessage.innerText = '';
-  copyText.value = newUrl;
-  resultImage.src = newUrl;
-  resultLink.innerText = newUrl;
-  resultModal.style.display = 'block';
-};
+//ImageEditorModify = new CloudimageUrlBuilder(configModify, onCompleteModify);
 
-ImageEditorModify = new FilerobotImageEditor(configModify, onCompleteModify);
-
-function initImageEditorDownload() {
-  initImageEditorAction(ImageEditorDownload);
+function initUrlBuilderDownload() {
+  initImageEditorAction(UrlBuilderDownload);
 }
 
-function initImageEditorUpload() {
+function UrlBuilderUpload() {
   initImageEditorAction(ImageEditorUpload);
 }
 
-function initImageEditorModify() {
-  initImageEditorAction(ImageEditorModify);
-}
+//function UrlBuilderModify() {
+//  initImageEditorAction(ImageEditorModify);
+//}
 
 function initImageEditorAction(action) {
   const image = document.querySelector('.demo-img.active');
@@ -195,6 +179,6 @@ function initImageEditorAction(action) {
   }
 }
 
-buttonEditDownload.onclick = initImageEditorDownload;
-buttonEditUpload.onclick = initImageEditorUpload;
-buttonEditModify.onclick = initImageEditorModify;
+buttonEditDownload.onclick = initUrlBuilderDownload;
+buttonEditUpload.onclick = UrlBuilderUpload;
+//buttonEditModify.onclick = UrlBuilderModify;

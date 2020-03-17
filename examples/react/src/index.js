@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import FilerobotImageEditor from '../../../projects/react';
+import '../../../projects/react/assets/base.scss';
+import UrlBuilder from '../../../projects/react/urlBuilder';
 
+const config = {
+  location: {},
+  //cloudimg_token: 'demoaws',
+  cloudimg_token: 'fusqadtm',
+  airstore_subdomain: 'fusqadtm',
+  airstore_key: '19692813e7364ef8ad6a6504d50a12ca',
+  projectDomains: {
+    api: "api.filerobot.com/fusqadtm",
+    store: "store.filerobot.com/fusqadtm",
+    cdn: "fusqadtm.filerobot.com",
+  },
+  language: 'en',
+  translations: {},
+  isShowInput: true,
+  isShowOutput: true,
+};
 
 const App = () => {
-  const src = 'https://cdn.scaleflex.it/demo/stephen-walker-unsplash.jpg';
   const [show, toggle] = useState(false);
-
 
   return (
     <div>
-      <h1>Filerobot Image Editor</h1>
-
-      <img src={src} onClick={() => { toggle(true) }} alt="example image"/>
-
-      <FilerobotImageEditor
+      <UrlBuilder
+        config={config}
         show={show}
-        src={src}
         onClose={() => { toggle(false) }}
         onComplete={(props) => { console.log(props) }}
         onBeforeComplete={(props) => { console.log(props); return false; }}
@@ -26,60 +37,3 @@ const App = () => {
 };
 
 render(<App/>, document.getElementById('app'));
-
-//import React, { Component } from 'react';
-//import { render } from 'react-dom';
-//import FilerobotImageEditor from '../../../projects/react';
-
-
-//const config = {
-//  filerobotUploadKey: '7cc1f659309c480cbc8a608dc6ba5f03',
-//  filerobotContainer: 'scaleflex-tests-v5a',
-//  // elementId: '',
-//  // uploadParams: {},
-//};
-
-//class App extends Component {
-//  constructor() {
-//    super();
-//
-//    this.state = {
-//      isShow: false,
-//      imgSrc: '//scaleflex.ultrafast.io/https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/koala.jpg'
-//    }
-//  }
-//
-//  showImageEditor = () => {
-//    this.setState({ isShow: true });
-//  }
-//
-//  //onComplete = (newUrl) => {
-//  //  this.setState({ imgSrc: newUrl });
-//  //}
-//
-//  onClose = () => {
-//    this.setState({ isShow: false });
-//  }
-//
-//  render() {
-//    const { imgSrc, isShow } = this.state;
-//
-//    return (
-//      <div>
-//        <h1>Filerobot Image Editor</h1>
-//
-//        <img src={imgSrc} onClick={this.showImageEditor} alt="example image"/>
-//
-//        <FilerobotImageEditor
-//          show={isShow}
-//          src={imgSrc}
-//          //config={config}
-//          //onComplete={this.onComplete}
-//          onClose={this.onClose}
-//        />
-//      </div>
-//    )
-//  }
-//}
-//
-//render(<App/>, document.getElementById('app'));

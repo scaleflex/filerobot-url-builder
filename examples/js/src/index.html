@@ -535,16 +535,34 @@ render(&lt;App/>, document.getElementById('app'));</code></pre>
 
 <script src="https://cdn.scaleflex.it/plugins/filerobot-uploader/2/filerobot-uploader.min.js"></script>
 <script>
+  //const config = {
+  //  filerobotUploadKey: '7cc1f659309c480cbc8a608dc6ba5f03',
+  //  container: 'scaleflex-tests-v5a',
+  //  dir: '/Github-Image-Editor',
+  //  modules: ['UPLOAD', 'IMAGES_GALLERY']
+  //};
+
   const config = {
-    filerobotUploadKey: '7cc1f659309c480cbc8a608dc6ba5f03',
-    container: 'scaleflex-tests-v5a',
-    dir: '/Github-Image-Editor',
-    modules: ['UPLOAD', 'IMAGES_GALLERY']
+    location: {},
+    //cloudimg_token: 'demoaws',
+    cloudimg_token: 'fusqadtm',
+    airstore_subdomain: 'fusqadtm',
+    airstore_key: '19692813e7364ef8ad6a6504d50a12ca',
+    projectDomains: {
+      api: "api.filerobot.com/fusqadtm",
+      store: "store.filerobot.com/fusqadtm",
+      cdn: "fusqadtm.filerobot.com",
+    },
+    language: 'en',
+    translations: {},
+    isShowInput: false,
+    isShowOutput: true,
   };
+
   const onUpload = (files) => {
     addNewImg(files)
   };
-  const uploader = FilerobotUploader.init(config, onUpload);
+  const urlBuilder = FilerobotUploader.init(config, onUpload);
   
   function addNewImg(files) {
     const demoImages = document.getElementById("demo-images");

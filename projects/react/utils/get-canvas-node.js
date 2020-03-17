@@ -1,1 +1,0 @@
-export const getCanvasNode = (id = 'scaleflex-image-edit-box') => window.document.getElementById(id);

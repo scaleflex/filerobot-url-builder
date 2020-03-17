@@ -1,0 +1,190 @@
+@import './variables.scss';
+
+/**
+ * Redefine airstore-explorer-modal styles
+ *
+ * Goal:
+ *   Airstore-explorer-modal must looks like other Filerobot modals
+ *
+ * Plans for future:
+ *   Remake modal system in scaleflex-react-ui-kit and use it everywhere (apps, libs)
+ *
+ * Quick solution:
+ *   Redefine airstore-explorer-modal styles and try to make it max close to Filerobot modals
+ */
+
+#app {
+  .airstore-explorer-modal {
+    font-family: $font-family;
+    font-size: 14px;
+    line-height: 1.4;
+    background: #fff;
+    color: $color-text-main;
+
+    header {
+      border-bottom: 1px solid $border-color;
+      height: 72px;
+      border-radius: 5px 5px 0 0;
+      box-sizing: border-box;
+      width: 100%;
+      z-index: 9;
+      outline: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 35px;
+      color: $color-text-main;
+      background: #ffffff;
+
+      h1 {
+        box-sizing: border-box;
+        flex: 1 1;
+
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 1.4;
+        font-size: 25px;
+      }
+
+      .cross-icon-wrapper {
+        font-size: 30px;
+
+        button {
+          display: block;
+          width: 15px;
+          height: 15px;
+          background: url($filerobotCdnPrefix + '/assets/admin/img/cross_default.svg') 50% 50% no-repeat;
+          background-size: contain;
+          cursor: pointer;
+          color: transparent;
+        }
+      }
+    }
+
+    > section {
+      padding: $container-padding;
+      overflow: auto;
+
+      label {
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        background-color: #fff;
+        box-shadow: none;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        color: #565656;
+        padding: 8px 12px;
+        height: 36px;
+        transition: all .3s linear;
+        width: 100%;
+        background-image: none;
+        display: block;
+        font-size: 14px;
+        // line-height: 1.42857143;
+        line-height: 1;
+        box-sizing: border-box;
+        outline: 0;
+
+        &[disabled], &[readonly] {
+          background-color: #eee;
+        }
+      }
+
+      button {
+        height: 36px;
+        width: 36px
+      }
+    }
+
+    > footer {
+      text-align: center !important;
+      border-top: 1px solid hsla(0,0%,66.7%,.5);
+      padding-top: 15px;
+      margin: 0 30px;
+
+      button {
+        float: none !important;
+        border-width: 2px;
+        background-color: transparent;
+        font-weight: 400;
+        opacity: .8;
+        filter: alpha(opacity=80);
+        padding: 8px 16px;
+        border-color: #888;
+        color: #888;
+        transition: .1s ease-in;
+        display: inline-block;
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 1;
+        // line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        outline: 0;
+        text-transform: uppercase;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &.disabled, &[disabled] {
+          cursor: not-allowed !important;
+          filter: alpha(opacity=65) !important;
+          box-shadow: none !important;
+          opacity: .65 !important;
+        }
+
+        &.default-btn {
+          background: lightgrey;
+          border-color: lightgrey;
+          color: $color-text-main;
+        }
+
+        &.primary-btn {
+          background: $main-color-2;
+          border-color: $main-color-2;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .airstore-explorer-overlay {
+    background: rgba(51, 51, 51, 0.9);
+  }
+
+  .airstore-explorer .ai-body .files-list-wrapper .files-list .list-item.active {
+    color: inherit;
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+.empty-container-placeholder {
+  width: 300px;
+  text-align: center;
+  font-size: 16px;
+  color: $main-color-2;
+}
+
+.airstore-explorer .uploading-files-wrapper .myProgress,
+.airstore-explorer .uploading-files-wrapper .myProgress .myBar {
+  background-color: $main-color-2 !important;
+}
+
+.airstore-explorer .tooltip {
+  background: #eceaf3 !important;
+  opacity: 1 !important;
+}

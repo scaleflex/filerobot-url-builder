@@ -1,6 +1,6 @@
 import './style.css';
 import './assets/fonts/helvetica-neue.css';
-import './filerobot-init-example';
+//import './filerobot-init-example';
 
 // Highlighting of code
 import hljs from 'highlight.js/lib/highlight';
