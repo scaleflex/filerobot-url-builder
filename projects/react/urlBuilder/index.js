@@ -195,7 +195,7 @@ class URLBuilder extends Component {
         style={{ padding: 5 }}
       >
         {isShowInput &&
-        <StepWrapper step="1" title={title}>
+        <StepWrapper step="1" title={title} className="step-1">
           <URLBuilderInput
             t={t}
             link={originalLink}
@@ -204,7 +204,7 @@ class URLBuilder extends Component {
           />
         </StepWrapper>}
 
-        <StepWrapper step="2" title={t.titles['TITLE_STEP_2']}>
+        <StepWrapper step="2" title={t.titles['TITLE_STEP_2']} className="step-2">
           {originalLink && config.cloudimg_token &&
           <UrlImageBuilder
             {...{
@@ -219,7 +219,7 @@ class URLBuilder extends Component {
         </StepWrapper>
 
         {builderProps.link && this.isImageTransformed(originalLink, builderProps.link) && isShowOutput &&
-        <StepWrapper step="3" title={t.titles['TITLE_STEP_3']}>
+        <StepWrapper step="3" title={t.titles['TITLE_STEP_3']} className="step-3">
           <URLBuilderOutput {...{ t, builderProps, showAlert }} />
         </StepWrapper>}
 
