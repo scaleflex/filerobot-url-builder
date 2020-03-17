@@ -24,6 +24,7 @@ module.exports = function (api) {
     "@babel/plugin-transform-arrow-functions",
     "@babel/plugin-syntax-jsx",
     "@babel/plugin-transform-react-jsx",
+    "@babel/plugin-transform-destructuring",
     "react-hot-loader/babel",
     "react-loadable/babel"
   ];
