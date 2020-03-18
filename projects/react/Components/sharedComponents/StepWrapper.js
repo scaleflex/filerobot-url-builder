@@ -44,7 +44,7 @@ const Step = styled.span`
   font-size: 22px;
 `;
 
-const Title = styled.p.attr(() => ({
+const Title = styled.p.attrs(() => ({
   className: 'step-title'
 }))`
   font-size: 18px;

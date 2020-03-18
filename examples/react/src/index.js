@@ -18,6 +18,8 @@ const config = {
   translations: {},
   isShowInput: true,
   isShowOutput: true,
+  uploaderModules: ['UPLOAD', 'MY_GALLERY'],
+  initialTab: 'UPLOAD'
 };
 
 const App = () => {

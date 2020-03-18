@@ -226,8 +226,8 @@ class URLBuilder extends Component {
         {isVisibleUploader &&
         <ImageUploaderModal
           config={{
-            modules: ['MY_GALLERY'],
-            initialTab: 'MY_GALLERY',
+            modules: config.uploaderModules,
+            initialTab: config.initialTab,
             //uploadParams: { dir: galleryPath },
             filerobotUploadKey: config.airstore_key,
             container: config.airstore_subdomain,

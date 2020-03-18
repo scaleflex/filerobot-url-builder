@@ -27,7 +27,7 @@ class URLBuilderOutput extends Component {
 
     return (
       <InputGroup>
-        <div className="input-group" style={{ display: 'block' }}>
+        <div className="input-group">
           {activeOperation &&
           <div className="form-control output-field">
             <div>
