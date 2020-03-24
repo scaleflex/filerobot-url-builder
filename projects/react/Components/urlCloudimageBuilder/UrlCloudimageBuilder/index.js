@@ -66,7 +66,7 @@ class UrlCloudimageBuilder extends Component {
   }
 
   initGallery = () => {
-    const externalGallery = this.props.gallery || defaultGallery;
+    const externalGallery = this.props.demoImages || defaultGallery;
     this.setState({ gallery: externalGallery });
   };
 

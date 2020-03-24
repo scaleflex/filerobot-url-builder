@@ -19,7 +19,7 @@ class ImageUploaderModal extends Component {
 
   render() {
     const {
-      initialTab = 'MY_GALLERY', config = {}, options = {}, opened, file = null,
+      initialTab = 'UPLOAD', config = {}, options = {}, opened, file = null,
       airstore_key, airstore_subdomain
     } = this.props;
 

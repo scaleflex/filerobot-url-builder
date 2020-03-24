@@ -19,7 +19,8 @@ const config = {
   isShowInput: true,
   isShowOutput: true,
   uploaderModules: ['UPLOAD', 'MY_GALLERY'],
-  initialTab: 'UPLOAD'
+  initialTab: 'UPLOAD',
+  demoImages: [ 'https://cdn.scaleflex.it/car.jpg', 'https://cdn.scaleflex.it/sea_world.jpg', 'https://cdn.scaleflex.it/flat.jpg' ]
 };
 
 const App = () => {

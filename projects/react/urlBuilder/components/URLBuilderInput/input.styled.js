@@ -21,7 +21,6 @@ export const SelectFileWrapper = styled('div')`
       display: block;
       white-space: nowrap;
       overflow: hidden;
-      width: calc(100% - 105px);
       overflow-x: scroll;
       padding: 10px 12px 8px 12px;
     }

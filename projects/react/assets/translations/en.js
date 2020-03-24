@@ -8,7 +8,7 @@ export default {
   common: {
     OK: 'OK',
     CANCEL: 'CANCEL',
-    OPEN_FROM_GALLERY: 'OPEN FROM GALLERY',
+    OPEN_FROM_GALLERY: 'Open from gallery',
   },
   builder: {
     CHANGE_PARAMS_HERE: 'Change params here',
@@ -22,7 +22,7 @@ export default {
     SELECT_FILTER: 'select filter',
     SELECT_OPERATION: 'select operation',
     BACKGROUND_COLOR: 'background color',
-    COPY_URL: 'COPY URL',
+    COPY_URL: 'Copy url',
     COPIED_TO_CLIPBOARD: 'Copied to clipboard',
     GRAVITY: 'gravity',
     ORIGINAL_IMG_URL: 'Original image url',

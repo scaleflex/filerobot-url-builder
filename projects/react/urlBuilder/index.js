@@ -17,10 +17,7 @@ class URLBuilder extends Component {
     super(props);
     const { config } = props;
 
-    //const STORE_PATH_PROP_NAME = 'store_path';
     const originalLink = this.getOriginalLink();
-    //const _path = sessionStorage.getItem(STORE_PATH_PROP_NAME);
-    //const galleryPath = _path || '/';
     config.language = translations[config.language] ? config.language : 'en';
 
     this.state = {
@@ -32,10 +29,7 @@ class URLBuilder extends Component {
         link: '',
       },
       urlUploaderProcessIndex: 0,
-      //galleryPath,
-      t: {
-        ...translations[config.language]
-      },
+      t: { ...translations[config.language] },
     };
   }
 
@@ -72,11 +66,12 @@ class URLBuilder extends Component {
   componentDidMount() {
     const { config } = this.props;
     const { originalLink, } = this.state;
+    const firstDemoImage = config.demoImages[0];
 
-    if (!originalLink && config.projectDomains.api) {
+    if ((!originalLink && config.projectDomains.api) && !firstDemoImage) {
       this.loadFileFromContainer();
     } else {
-      this.setState({ isLoading: false });
+      this.setState({ isLoading: false, originalLink: firstDemoImage });
     }
   }
 
@@ -99,10 +94,11 @@ class URLBuilder extends Component {
   componentDidUpdate(prevProps) {
     const { config } = this.props;
     const { originalLink, } = this.state;
+    const firstDemoImage = config.demoImages[0];
 
     const hasDifferentToken = prevProps.cloudimg_token && cloudimg_token && prevProps.cloudimg_token !== config.cloudimg_token;
 
-    if (hasDifferentToken || (!originalLink && config.projectDomains.api)) {
+    if ((hasDifferentToken || (!originalLink && config.projectDomains.api)) && !firstDemoImage) {
       this.removeUrlParams('link', 'is_image');
       this.loadFileFromContainer(hasDifferentToken);
     }
@@ -166,10 +162,10 @@ class URLBuilder extends Component {
 
   renderContent(title) {
     const { showAlert, config } = this.props;
-    const { isShowInput, isShowOutput, cloudimg_token, projectDomains } = config;
-    const { isVisibleUploader, isLoading, isImage, originalLink, builderProps, galleryPath, t } = this.state;
+    const { isShowInput, isShowOutput, cloudimg_token, projectDomains, demoImages } = config;
+    const { isVisibleUploader, isLoading, isImage, originalLink, builderProps, t } = this.state;
 
-    const originalLinkPath = this.getOriginalLinkPath(originalLink);
+    const originalLinkPath = isShowInput ? this.getOriginalLinkPath(originalLink) : originalLink;
 
     if (!config.cloudimg_token || isLoading) {
       return <Loader lg />;
@@ -212,6 +208,7 @@ class URLBuilder extends Component {
               isShowInput,
               cloudimg_token,
               projectDomains,
+              demoImages,
               updateResultLink: this.updateResultLink,
               path: originalLinkPath
             }}
