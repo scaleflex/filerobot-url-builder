@@ -23,7 +23,7 @@ export default {
     SELECT_OPERATION: 'select operation',
     BACKGROUND_COLOR: 'background color',
     COPY_URL: 'Copy url',
-    COPIED_TO_CLIPBOARD: 'Copied to clipboard',
+    COPIED_TO_CLIPBOARD: 'Copied',
     GRAVITY: 'gravity',
     ORIGINAL_IMG_URL: 'Original image url',
     PAST_YOUR_OWN_IMG_URL: 'Paste your own image URL',

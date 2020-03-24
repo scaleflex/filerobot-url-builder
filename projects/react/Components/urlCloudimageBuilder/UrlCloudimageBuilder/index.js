@@ -367,6 +367,7 @@ class UrlCloudimageBuilder extends Component {
     }, () => {
       this.updateLink();
       this.updateHeightOfImageWrapper();
+      this.setState({ isLoading: false })
     });
   };
 
