@@ -1,5 +1,5 @@
 const path = require('path');
-const { ReactLoadablePlugin } = require('react-loadable/webpack');
+//const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const webpack = require('webpack');
 const pkg = require('../package');
 
@@ -15,9 +15,9 @@ const banner = `
 `;
 
 
-const reactLoadablePlugin = new ReactLoadablePlugin({
-  filename: '../build/react-loadable.json'
-});
+//const reactLoadablePlugin = new ReactLoadablePlugin({
+//  filename: '../build/react-loadable.json'
+//});
 
 module.exports = (env = {}) => {
   return {
@@ -51,7 +51,7 @@ module.exports = (env = {}) => {
       ]
     },
     plugins: [
-      reactLoadablePlugin,
+      //reactLoadablePlugin,
       new webpack.BannerPlugin(banner)
     ],
     resolve: {
