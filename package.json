@@ -62,20 +62,8 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "start-demo-js": "webpack-dev-server --mode development --config config/webpack.demo-js-config.js",
-    "start-demo-react": "webpack-dev-server --mode development --config config/webpack.demo-react-config.js",
-    "clean-demo-js": "rm -rf examples/js/dist",
-    "build-demo-js": "npm run clean-demo-js && webpack --mode production --config config/webpack.demo-js-config.js",
-    "build-demo-js-latest": "npm run clean-demo-js && webpack --mode production --config config/webpack.demo-js-config.js",
-    "clean-demo-react": "rm -rf examples/react/dist",
-    "build-demo-react": "npm run clean-demo-react && webpack --mode production --config config/webpack.demo-react-config.js",
-    "clean-build": "rm -rf build",
-    "build-new": "webpack --mode production --config config/webpack.js-config.js",
-    "build-latest": "webpack --mode production --config config/webpack.js-config.js --env.latest",
-    "build": "npm run clean-build && npm run build-new && npm run build-latest",
-    "clean-dist": "rm -rf dist",
-    "dist": "npm run clean-dist && npx babel projects/react --out-dir dist --copy-files",
-    "deploy": "gh-pages -d examples/js/dist",
-    "publish-demo": "npm run build-demo-js && npm run deploy"
+    "clean-build": "m -rf build",
+    "build-js": "webpack --mode production --config config/webpack.js-config.js",
+    "build": "npm run clean-build && npm run build-js"
   }
 }
