@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FilerobotUploader from 'filerobot-uploader';
+//import FilerobotUploader from 'filerobot-uploader';
 
 
 class ImageUploaderModal extends Component {
@@ -27,17 +27,19 @@ class ImageUploaderModal extends Component {
       return null;
     }
 
-    return (
-      <FilerobotUploader
-        opened={opened}
-        file={file}
-        options={options}
-        config={{ ...config }}
-        initialTab={initialTab}
-        onClose={this.close}
-        onUpload={this.onFilesUpload}
-      />
-    );
+    return null;
+
+    //return (
+    //  <FilerobotUploader
+    //    opened={opened}
+    //    file={file}
+    //    options={options}
+    //    config={{ ...config }}
+    //    initialTab={initialTab}
+    //    onClose={this.close}
+    //    onUpload={this.onFilesUpload}
+    //  />
+    //);
   }
 }
 
