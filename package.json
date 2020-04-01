@@ -62,7 +62,7 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "clean-build": "m -rf build",
+    "clean-build": "rm -rf build",
     "build-js": "webpack --mode production --config config/webpack.js-config.js",
     "build": "npm run clean-build && npm run build-js"
   }
