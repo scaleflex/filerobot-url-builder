@@ -93,8 +93,6 @@
   font-weight: normal;
 }
 
-.j-section-demo .operation,
-.j-section-demo .size,
 .j-section-demo .url,
 .j-section-demo .filter {
   text-align: right;
@@ -115,9 +113,10 @@
 .j-section-demo .title {
   line-height: 25px;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   width: 35%;
   text-align: left;
+  font-weight: 700;
 }
 
 .j-section-demo .multi-select {
@@ -197,7 +196,24 @@
   vertical-align: middle;
 }
 
-.j-section-demo .operation-params,
+.j-section-demo-filter-cross:hover {
+  color: #ff5e44;
+}
+
+.j-section-demo .operation-params > .active-operation,
+.j-section-demo .secondary-operation:not(:last-child) {
+  border-bottom: 1px solid;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.j-section-demo .operation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
 .j-section-demo .multi-select-wrap {
   display: inline-block;
   vertical-align: top;

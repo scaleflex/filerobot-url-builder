@@ -211,7 +211,7 @@ class UrlCloudimageBuilder extends Component {
       resolve();
     })
       .then(() => {
-        this.setState({ link, isLoading: true }, () => {
+        this.setState({ link, isLoading: false }, () => {
           this.props.updateResultLink({
             link,
             size: this.size,
@@ -472,9 +472,9 @@ class UrlCloudimageBuilder extends Component {
     this.secondaryOperationsProps = {};
 
     return (
-      <div className="j-section-demo">
+      <div className="j-section-demo row">
 
-        <div className="ci-demo-controls-wrapper row">
+        <div className="ci-demo-controls-wrapper">
           <div className="col-lg-4 col-md-12 controls">
             <h4><span>{t.builder['CHANGE_PARAMS_HERE']}:</span></h4>
             {this.renderControls()}
@@ -617,9 +617,7 @@ class UrlCloudimageBuilder extends Component {
         </div>
 
         <div className='size'>
-          <span className='title' style={{ color: '#f47373' }}>
-            {t.builder['SIZE_PX']}
-          </span>
+          <span className='title' style={{ color: '#f47373', marginBottom: 10 }}><Translate i18nKey="URL_BUILDER.SIZE_PX" defaultValue="size (px)" /></span>
           <div className='operation-params'>
             {this.renderActiveOperation(activeOperation)}
             {this.renderSecondaryOperations()}
@@ -739,11 +737,7 @@ class UrlCloudimageBuilder extends Component {
   }
 
   renderCloseSecondaryOperationButton = (operationName) => (
-    <div
-      className="j-section-demo-filter-cross"
-      onClick={() => { this.removeSecondaryOperation(operationName) }}
-    >x
-    </div>
+    <div className="j-section-demo-filter-cross" onClick={() => { this.removeSecondaryOperation(operationName) }}>⨉</div>
   )
 
   renderSecondaryOperations = () => {
@@ -767,7 +761,7 @@ class UrlCloudimageBuilder extends Component {
           operationProps['Cut'] = this.renderOperation({ label: 'Cut', operation: TRIM });
           break;
         default:
-          operationProps[operationName] = this.renderOperation({ label: operationName, operation: operationName });
+          operationProps[operationName] = this.renderOperation({ label: operationName, operation: oResized imageperationName });
           break;
       }
 
@@ -778,15 +772,18 @@ class UrlCloudimageBuilder extends Component {
         const secondaryOperationProps = _getSecondaryOperationProps(operationName)
         this.secondaryOperationsProps = { ...this.secondaryOperationsProps, ...secondaryOperationProps };
 
-        return (
-          <div key={`sec-${operationName}`}>
-          <span className='title' style={{ color: '#f47373' }}>
-            {t.secondaryOperations[operationName]}
-          </span>
+      return (
+        <div className="secondary-operation" key={`sec-${operationName}`}>
+          <div className="operation-header">
+            <span className='title' style={{ color: '#f47373' }}>
+              <Translate i18nKey={`URL_BUILDER.OPERATION.${operationName}`} defaultValue={operationName} />
+            </span>
             {activeOperation !== operationName && this.renderCloseSecondaryOperationButton(operationName)}
-            {this.renderOperationProps(secondaryOperationProps, 'secondary')}
-          </div >
-        )
+          </div>
+
+          {this.renderOperationProps(secondaryOperationProps, 'secondary')}
+        </div >
+      )
       }
     )
   }
@@ -797,7 +794,7 @@ class UrlCloudimageBuilder extends Component {
    */
   renderOperationProps = (operationProps, identifier) => {
     return (
-      <div>
+      <div className="active-operation">
         {Object.keys(operationProps).map(key => <Fragment key={`${identifier}-${key}`}>{operationProps[key]}</Fragment>)}
       </div>
     )
@@ -953,7 +950,7 @@ class UrlCloudimageBuilder extends Component {
       return (
         <label key={`current-filter-${index}`} style={{ width: '100%' }}>
           <span className='title' style={{ color: '#2ccce4' }}>
-            {index === 0 && t.builder['FILTERS']}
+            {index === 0 && <Translate i18nKey="FILTERS" defaultValue="filters" />}
           </span>
 
           <div className='multi-select-wrap' style={{ marginBottom: 5 }}>
@@ -978,11 +975,7 @@ class UrlCloudimageBuilder extends Component {
               {this.renderActiveFilter(index, filter)}
             </div>
 
-            <div
-              className="j-section-demo-filter-cross"
-              onClick={() => { this.onRemoveFilter(index); }}
-            >x
-            </div>
+            <div className="j-section-demo-filter-cross" onClick={() => { this.onRemoveFilter(index); }}>⨉</div>
           </div>
 
           {
