@@ -761,7 +761,7 @@ class UrlCloudimageBuilder extends Component {
           operationProps['Cut'] = this.renderOperation({ label: 'Cut', operation: TRIM });
           break;
         default:
-          operationProps[operationName] = this.renderOperation({ label: operationName, operation: oResized imageperationName });
+          operationProps[operationName] = this.renderOperation({ label: operationName, operation: operationName });
           break;
       }
 
