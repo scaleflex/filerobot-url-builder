@@ -617,7 +617,8 @@ class UrlCloudimageBuilder extends Component {
         </div>
 
         <div className='size'>
-          <span className='title' style={{ color: '#f47373', marginBottom: 10 }}><Translate i18nKey="URL_BUILDER.SIZE_PX" defaultValue="size (px)" /></span>
+          {/*<span className='title' style={{ color: '#f47373', marginBottom: 10 }}><Translate i18nKey="URL_BUILDER.SIZE_PX" defaultValue="size (px)" /></span>*/}
+          <span className='title' style={{ color: '#f47373', marginBottom: 10 }}>size (px)</span>
           <div className='operation-params'>
             {this.renderActiveOperation(activeOperation)}
             {this.renderSecondaryOperations()}
@@ -776,7 +777,8 @@ class UrlCloudimageBuilder extends Component {
         <div className="secondary-operation" key={`sec-${operationName}`}>
           <div className="operation-header">
             <span className='title' style={{ color: '#f47373' }}>
-              <Translate i18nKey={`URL_BUILDER.OPERATION.${operationName}`} defaultValue={operationName} />
+              {/*<Translate i18nKey={`URL_BUILDER.OPERATION.${operationName}`} defaultValue={operationName} />*/}
+              {operationName}
             </span>
             {activeOperation !== operationName && this.renderCloseSecondaryOperationButton(operationName)}
           </div>
@@ -950,7 +952,8 @@ class UrlCloudimageBuilder extends Component {
       return (
         <label key={`current-filter-${index}`} style={{ width: '100%' }}>
           <span className='title' style={{ color: '#2ccce4' }}>
-            {index === 0 && <Translate i18nKey="FILTERS" defaultValue="filters" />}
+            {/*{index === 0 && <Translate i18nKey="FILTERS" defaultValue="filters" />}*/}
+            {index === 0 && "filters"}
           </span>
 
           <div className='multi-select-wrap' style={{ marginBottom: 5 }}>
